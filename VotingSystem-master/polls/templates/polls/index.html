@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Online Application System</title>
+    {% load static %}
+    <!-- load CSS -->
+    <link rel="stylesheet" href="{% static 'polls/css/googleapis.fonts.css' %}">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="{% static 'polls/css/materialize.min.css' %}">
+    <!-- https://materializecss.com -->
+    <link rel="stylesheet" href="{% static 'polls/css/bootstrap.min.css' %}">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{% static 'polls/css/all.min.css' %}">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="{% static 'polls/css/templatemo-style.css' %}">
+    <!-- Template Mo style -->
+    <link rel="stylesheet" href="{% static 'polls/css/top.css' %}">
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-7">
+            <i class="far fa-comments fa-5x tm-site-icon"></i>
+            <h1 class="tm-site-name">Feedforward Information</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="tm-parallax"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="tm-intro">
+            <div class="col-sm-12 col-md-8 mb-md-0 mb-4 tm-intro-left">
+                <p class="mb-0">
+                    Human-computer interaction (HCI) is a multidisciplinary field of study focusing on the design of computer technology and, in particular, the interaction between humans (the users) and computers. While initially concerned with computers, HCI has since expanded to cover almost all forms of information technology design.
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <em>
+                    <p class="tm-highlight">&ldquo;Uncover the Unknown&rdquo;</p>
+                </em>
+            </div>
+        </div>
+        <div class="col-12">
+            <hr>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">Let's start!</h1>
+        </div>
+        <div class="col-12">
+            <hr>
+        </div>
+    </div>
+
+    <div class="row" style="">
+        {% if questionnaires %}
+            {% for qs in questionnaires %}
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card" style="width: auto;height: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Available Task</h5>
+                            <p class="card-text">{{ qs.title }}</p>
+                            <div>
+                                <a href="{% url 'polls:get_questionnaire'  qs.id %}"
+                                   class="btn btn-outline-secondary btn-lg btn-block"
+                                   style="position: absolute;bottom: 5%;width:85%;">Enter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <h2 class="tm-question-none">No question are available!</h2>
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <hr>
+        </div>
+        <div class="col-12">
+            <footer>
+                <p class="text-center mb-3 tm-footer-text">Copyright &copy;
+                    <a href="/admin" target="_blank"><strong>wangxi</strong></a>
+                    2021</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- 回到顶部-->
+    <div class="float-bar vm_" id="top-icon" style="visibility:hidden">
+        <div class="float-bar-item vm_" onclick="topFunction()"
+             style="border-radius: 4px; border: 1px solid rgb(243, 244, 245);">
+            <div class="float-bar-item-icon vm_">
+                <svg t="1584178345280" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                     xmlns="http://www.w3.org/2000/svg" p-id="5525" width="36" height="36">
+                    <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z"
+                          fill="#a3a3ac" p-id="5526"></path>
+                </svg>
+            </div>
+            <div class="float-bar-item-content vm_" style="bottom: 3px; padding: 10px 50px;">
+                <div class="gray-c">Back to top</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'polls/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'polls/js/materialize.min.js' %}"></script>
+<script src="{% static 'polls/js/page.js' %}"></script>
+</body>
+
+</html>

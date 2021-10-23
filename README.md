@@ -1,4 +1,2 @@
 # 这是一个神奇的项目
-
-# NB
-### Hi
+# I Agree and today's coffee is bad

@@ -11,6 +11,9 @@ from django.views import generic
 
 from .models import Question, Choice, User, Questionnaire
 
+def testal(request):
+    return render(request, 'polls/index_1.html')
+
 
 def index(request):
     all_entries = Questionnaire.objects.all()
